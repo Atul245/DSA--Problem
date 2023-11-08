@@ -1,0 +1,104 @@
+// Anagram -> 1. The length of the two strings must be the same.
+//            2. The characters as well as their frequency must be the same.
+
+//code: 
+#include <bits/stdc++.h>
+using namespace std;
+
+bool approach1(string str1, string str2)
+{
+    if (str1.length() != str2.length())
+        return false;
+    for (int i = 0; i < str1.length(); i++)
+    {
+        bool flg = false;
+        for (int j = 0; j < str1.length(); j++)
+        {
+            if (str1[i] == str2[j])
+            {
+                str2[j] = '#';
+                flg = true;
+                break;
+            }
+        }
+        if (!flg)
+            return flg;
+    }
+    return true;
+}
+
+bool approach2(string str1, string str2)
+{
+    sort(str1.begin(), str1.end());
+    sort(str2.begin(), str2.end());
+    for (int i = 0; i < str1.length(); i++)
+    {
+        if (str1[i] != str2[i])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool approach3(string str1, string str2)
+{
+    int arr[26] = {};
+    for (int i = 0; i < str1.length(); i++)
+    {
+        arr[str1[i] - 'a']++;
+    }
+    for (int i = 0; i < str1.length(); i++)
+    {
+        arr[str2[i] - 'a']--;
+    }
+    for (int i = 0; i < str1.length(); i++)
+    {
+        if (arr[i] != 0)
+            return false;
+    }
+    return true;
+}
+
+int main()
+{
+    string str1 = "abbcc", str2 = "abcbc";
+    cout << approach1(str1, str2); 
+    cout << approach2(str1, str2); 
+    cout << approach3(str1, str2); 
+    return 0;
+}
+
+Approach 1
+
+This approach involves iterating over the first string and checking if each character can be found in the second string. Once a character is found, it is replaced with a special character to prevent it from being found again. If all characters in the first string can be found in the second string, then the strings are anagrams.
+
+Time Complexity: O(n^2)
+This is because the inner loop iterates over the entire second string for each character in the first string.
+
+Space Complexity: O(1)
+This is because no additional data structures are used.
+
+Approach 2
+
+This approach involves sorting both strings and then comparing them. If the sorted strings are equal, then the original strings are anagrams.
+
+Time Complexity: O(n log n)
+This is because sorting a string takes O(n log n) time.
+
+Space Complexity: O(1)
+This is because no additional data structures are used.
+
+Approach 3
+
+This approach involves creating a frequency array for each string. The frequency array keeps track of the number of times each letter appears in the string. If the frequency arrays are equal, then the strings are anagrams.
+
+Time Complexity: O(n)
+This is because creating a frequency array takes O(n) time.
+
+Space Complexity: O(1)
+This is because only one frequency array is used.
+
+Conclusion
+
+Approach 3 is the most efficient approach in terms of both time and space complexity. It is also the simplest approach to understand.
