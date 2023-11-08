@@ -1,0 +1,33 @@
+Approach 1
+
+This approach involves iterating over the first string and checking if each character can be found in the second string. Once a character is found, it is replaced with a special character to prevent it from being found again. If all characters in the first string can be found in the second string, then the strings are anagrams.
+
+Time Complexity: O(n^2)
+This is because the inner loop iterates over the entire second string for each character in the first string.
+
+Space Complexity: O(1)
+This is because no additional data structures are used.
+
+Approach 2
+
+This approach involves sorting both strings and then comparing them. If the sorted strings are equal, then the original strings are anagrams.
+
+Time Complexity: O(n log n)
+This is because sorting a string takes O(n log n) time.
+
+Space Complexity: O(1)
+This is because no additional data structures are used.
+
+Approach 3
+
+This approach involves creating a frequency array for each string. The frequency array keeps track of the number of times each letter appears in the string. If the frequency arrays are equal, then the strings are anagrams.
+
+Time Complexity: O(n)
+This is because creating a frequency array takes O(n) time.
+
+Space Complexity: O(1)
+This is because only one frequency array is used.
+
+Conclusion
+
+Approach 3 is the most efficient approach in terms of both time and space complexity. It is also the simplest approach to understand.
